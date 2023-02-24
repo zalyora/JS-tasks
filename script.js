@@ -1,9 +1,9 @@
-const FIRST_NUMBER = parseInt(prompt('Enter a number:'));
-const SECOND_NUMBER = parseInt(prompt('Enter a number:'));
-const sum = FIRST_NUMBER + SECOND_NUMBER;
-const substract = FIRST_NUMBER - SECOND_NUMBER;
-const multiply = FIRST_NUMBER * SECOND_NUMBER;
-const divide = FIRST_NUMBER / SECOND_NUMBER;
+const FIRST_NUMBER = prompt('Enter a number:');
+const SECOND_NUMBER = prompt('Enter a number:');
+const sum = parseInt(FIRST_NUMBER) + parseInt(SECOND_NUMBER);
+const substract = parseInt(FIRST_NUMBER) - parseInt(SECOND_NUMBER);
+const multiply = parseInt(FIRST_NUMBER) * parseInt(SECOND_NUMBER);
+const divide = parseInt(FIRST_NUMBER) / parseInt(SECOND_NUMBER);
 alert(`The sum is ${sum}`);
 alert(`The substraction result is ${substract}`);
 alert(`The multiplication result is ${multiply}`);
