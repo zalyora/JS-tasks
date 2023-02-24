@@ -1,0 +1,10 @@
+const FIRST_NUMBER = parseInt(prompt('Enter a number:'));
+const SECOND_NUMBER = parseInt(prompt('Enter a number:'));
+const sum = FIRST_NUMBER + SECOND_NUMBER;
+const substract = FIRST_NUMBER - SECOND_NUMBER;
+const multiply = FIRST_NUMBER * SECOND_NUMBER;
+const divide = FIRST_NUMBER / SECOND_NUMBER;
+alert(`The sum is ${sum}`);
+alert(`The substraction result is ${substract}`);
+alert(`The multiplication result is ${multiply}`);
+alert(`The division is ${divide}`);
