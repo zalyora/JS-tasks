@@ -1,4 +1,4 @@
-const array = [3, 57, 9, 45, '293', 12, 6, NaN, 54, 5];
+const array = ['banana', 1, 100, 3, 57, '293', 12, 6, NaN, 54];
 
 let sum = 0;
 for (let i = 0; i < array.length; i++) {
@@ -16,16 +16,16 @@ let minNumber = array[0];
 for (let i = 0; i < array.length; i++) {
     if (typeof array[i] !== 'number' || isNaN(array[i])) {
         continue;
-    } else if (array[i] > maxNumber) {
-        maxNumber = array[i];
-    } else if (array[i] < minNumber) {
+    } else if (typeof minNumber !== 'number' || isNaN(minNumber) || array[i] < minNumber) {
         minNumber = array[i];
+    } else if (typeof maxNumber !== 'number' || isNaN(maxNumber) || array[i] > maxNumber) {
+        maxNumber = array[i];
     }
 }
 console.log(minNumber, maxNumber);
 
 
 let str = '#';
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 6; i++) {
     console.log(str.repeat(i));
 }
