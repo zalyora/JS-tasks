@@ -1,44 +1,77 @@
 const FIRST_NUMBER = prompt('Enter a number:');
 const SECOND_NUMBER = prompt('Enter a number:');
-const sum = parseInt(FIRST_NUMBER) + parseInt(SECOND_NUMBER);
-const substract = parseInt(FIRST_NUMBER) - parseInt(SECOND_NUMBER);
-const multiply = parseInt(FIRST_NUMBER) * parseInt(SECOND_NUMBER);
-const divide = parseInt(FIRST_NUMBER) / parseInt(SECOND_NUMBER);
+const message = 'I need numbers to calculate';
+const message2 = 'Error: impossible to divide!';
+const sumMessage = 'The sum is ';
+const substrMessage = 'The substraction result is ';
+const multMessage = 'The multiplication result is ';
+const divisMessage = 'The division is ';
 
 if (!FIRST_NUMBER || !SECOND_NUMBER) {
-    alert('Error: you need to enter both numbers')
+    alert(message);
 } else if (SECOND_NUMBER == 0 && FIRST_NUMBER > SECOND_NUMBER) {
-    alert(`The sum is ${sum}`);
-    alert(`The substraction result is ${substract}`);
-    alert(`The multiplication result is ${multiply}`);
-    alert('Error: impossible to divide!');
+    alert(`${sumMessage}${sum(FIRST_NUMBER, SECOND_NUMBER)}`);
+    alert(`${substrMessage}${substract(FIRST_NUMBER, SECOND_NUMBER)}`);
+    alert(`${multMessage}${multiply(FIRST_NUMBER, SECOND_NUMBER)}`);
+    alert(message2);
 } else if (SECOND_NUMBER == 0 && FIRST_NUMBER < SECOND_NUMBER) {
     let CONFIRMATION = confirm('Are you sure you want to continue?');
     if (!CONFIRMATION) {
-        alert(`The sum is ${sum}`);
-        alert(`The multiplication result is ${multiply}`);
-        alert('Error: impossible to divide!');
+        alert(`${sumMessage}${sum(FIRST_NUMBER, SECOND_NUMBER)}`);
+        alert(`${multMessage}${multiply(FIRST_NUMBER, SECOND_NUMBER)}`);
+        alert(message2);
     } else {
-        alert(`The sum is ${sum}`);
-        alert(`The substraction result is ${substract}`);
-        alert(`The multiplication result is ${multiply}`);
-        alert('Error: impossible to divide!');
+        alert(`${sumMessage}${sum(FIRST_NUMBER, SECOND_NUMBER)}`);
+        alert(`${substrMessage}${substract(FIRST_NUMBER, SECOND_NUMBER)}`);
+        alert(`${multMessage}${multiply(FIRST_NUMBER, SECOND_NUMBER)}`);
+        alert(message2);
     }
 } else if (FIRST_NUMBER < SECOND_NUMBER) {
     let CONFIRMATION = confirm('Are you sure you want to continue?');
     if (!CONFIRMATION) {
-        alert(`The sum is ${sum}`);
-        alert(`The multiplication result is ${multiply}`);
-        alert(`The division is ${divide}`);
+        alert(`${sumMessage}${sum(FIRST_NUMBER, SECOND_NUMBER)}`);
+        alert(`${multMessage}${multiply(FIRST_NUMBER, SECOND_NUMBER)}`);
+        alert(`${divisMessage}${divide(FIRST_NUMBER, SECOND_NUMBER)}`);
     } else {
-        alert(`The sum is ${sum}`);
-        alert(`The substraction result is ${substract}`);
-        alert(`The multiplication result is ${multiply}`);
-        alert(`The division is ${divide}`);
+        alert(`${sumMessage}${sum(FIRST_NUMBER, SECOND_NUMBER)}`);
+        alert(`${substrMessage}${substract(FIRST_NUMBER, SECOND_NUMBER)}`);
+        alert(`${multMessage}${multiply(FIRST_NUMBER, SECOND_NUMBER)}`);
+        alert(`${divisMessage}${divide(FIRST_NUMBER, SECOND_NUMBER)}`);
     }
 } else {
-    alert(`The sum is ${sum}`);
-    alert(`The substraction result is ${substract}`);
-    alert(`The multiplication result is ${multiply}`);
-    alert(`The division is ${divide}`);
+    alert(`${sumMessage}${sum(FIRST_NUMBER, SECOND_NUMBER)}`);
+    alert(`${substrMessage}${substract(FIRST_NUMBER, SECOND_NUMBER)}`);
+    alert(`${multMessage}${multiply(FIRST_NUMBER, SECOND_NUMBER)}`);
+    alert(`${divisMessage}${divide(FIRST_NUMBER, SECOND_NUMBER)}`);
+}
+
+function sum(a, b) {
+    if (typeof a === 'number' && typeof b === 'number') {
+        return a + b;
+    } else {
+        return Number(a) + Number(b);
+    }
+}
+
+function substract(a, b) {
+    if (typeof a === 'number' && typeof b === 'number') {
+        return a - b;
+    } else {
+        return Number(a) - Number(b);
+    }
+}
+
+function multiply(a, b) {
+    if (typeof a === 'number' && typeof b === 'number') {
+        return a * b;
+    } else {
+        return Number(a) * Number(b);
+    }
+}
+
+function divide(a, b) {
+    if (typeof a === 'number' && typeof b === 'number') {return a / b;
+    } else {
+        return Number(a) / Number(b);
+    }
 }
