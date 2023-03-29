@@ -8,14 +8,6 @@ function Accumulator(number) {
     } 
 }
 
-// Accumulator.prototype.increment = function(number) {
-//     return ++number;
-// };
-
-// Accumulator.prototype.decrement = function(number) {
-//     return --number;
-// };
-
 function CancelableAccumulator(number) {
     Accumulator.call(this, number);
     this.clear = function() {
@@ -25,11 +17,6 @@ function CancelableAccumulator(number) {
 }
 
 CancelableAccumulator.prototype = Object.create(Accumulator.prototype);
-
-// CancelableAccumulator.prototype.clear = function(number) {
-//     this.value = number;
-//     return this.value;
-// };
 
 const increased = new Accumulator(-10);
 const acc = new CancelableAccumulator(25)
