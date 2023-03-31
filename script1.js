@@ -24,7 +24,7 @@ ToArray.prototype.printItems = function () {
     }
 }
 
-const toArray = new ToArray();
+let toArray = new ToArray();
 ARR_CALC.addEventListener('click', () => {
     ARR_RESULT.innerHTML = '';
     let inputArray = Object.values(toArray);
@@ -33,6 +33,7 @@ ARR_CALC.addEventListener('click', () => {
         minMax(...inputArray);
         printArray(...inputArray, true);
         clearInput(ARRAY);
+        toArray.inputArray.length = 0;
     } else {
         arraySum(defaultArray);
         minMax(defaultArray);
@@ -96,12 +97,33 @@ function minMax(arr) {
 }
 
 function getColor(num) {
+    let colorNum = 0;
+    
     if (num > 0) {
-        return 'green';
+        colorNum = changeColorHue(num);
+        return `rgb(0, ${colorNum}, 0)`;
     } else if(num < 0) {
-        return 'red';
+        colorNum = changeColorHue(num);
+        return `rgb(${colorNum}, 0, 0)`;
     } else {
         return 'black';
+    }
+}
+
+function changeColorHue(num) {
+    let max = 255;
+    num = Math.abs(num);
+    if (num > 273) {
+        return 255;
+    } else if (num < 100) {
+        return 80;
+    } else {
+        for (let i = 273; i > 0; i--) {
+            max = max - 1;
+            if (num === i) {
+                return max;
+            }
+        }
     }
 }
 
@@ -117,7 +139,7 @@ function createSpan(elem, text, number) {
     span.style.display = 'inline-block';
     span.style.marginRight = '10px';
     span.style.color = getColor(number);
-    span.style.opacity = setOpacity(number);
+    // span.style.opacity = setOpacity(number);
     elem.appendChild(span);
 }
 
@@ -155,30 +177,30 @@ function draw() {
     }
 }
 
-function setOpacity(num) {
-    num = Math.abs(num);
-    switch (true) {
-        case num > 80 && num <= 100:
-            num = 0.9;
-            break;
-        case num > 60 && num <= 80:
-            num = 0.8;
-            break;
-        case num > 40 && num <= 60:
-            num = 0.7;
-            break;
-        case num > 20 && num <= 40:
-            num = 0.6;
-            break;
-        case num > 0 && num <= 20:
-            num = 0.5;
-            break;
-        default:
-            num = 1;
-            break;
-    }
-    return num;
-}
+// function setOpacity(num) {
+//     num = Math.abs(num);
+//     switch (true) {
+//         case num > 80 && num <= 100:
+//             num = 0.9;
+//             break;
+//         case num > 60 && num <= 80:
+//             num = 0.8;
+//             break;
+//         case num > 40 && num <= 60:
+//             num = 0.7;
+//             break;
+//         case num > 20 && num <= 40:
+//             num = 0.6;
+//             break;
+//         case num > 0 && num <= 20:
+//             num = 0.5;
+//             break;
+//         default:
+//             num = 1;
+//             break;
+//     }
+//     return num;
+// }
 
 function numbersArray(array) {
     let checkedArray = [];
