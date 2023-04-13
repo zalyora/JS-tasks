@@ -13,7 +13,7 @@ function CancelableAccumulator(number) {
     this.clear = function() {
         this.value = number;
     return this.value;
-    };
+    }
 }
 
 CancelableAccumulator.prototype = Object.create(Accumulator.prototype);
